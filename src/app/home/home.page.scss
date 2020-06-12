@@ -1,0 +1,25 @@
+.card-footer{
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.text-right{
+  text-align: right;
+}
+
+.header .col {
+  background-color:lightgrey;
+}
+
+.col {
+  border: solid 1px grey;
+  border-bottom-style: none;
+  border-right-style: none;
+}
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px grey;
+}

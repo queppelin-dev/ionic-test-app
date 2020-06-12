@@ -1,0 +1,47 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title><ion-icon name="arrow-back-outline" (click)="goBack()" class="back-button"></ion-icon> Add User</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="createUserForm" (submit)="createUser()">
+    <ion-item>
+      <ion-label stacked> Name</ion-label>
+      <ion-input
+        formControlName="userName"
+        type="text"
+        placeholder="What is your name ?"
+      >
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input
+        formControlName="userEmail"
+        type="text"
+        placeholder="What is your email ?"
+      >
+      </ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Phone</ion-label>
+      <ion-input
+        formControlName="userPhone"
+        type="text"
+        placeholder="What is your phone number"
+      >
+      </ion-input>
+    </ion-item>
+
+    
+
+    <ion-button expand="block" type="submit" [disabled]="!createUserForm.valid">
+      Add Me
+    </ion-button>
+  </form>
+</ion-content>

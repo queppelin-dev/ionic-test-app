@@ -1,0 +1,66 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>Users</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/create">
+        <ion-icon name="add"></ion-icon> Add
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+  <div class="text-right">
+    <ion-button (click)="changeView()" size="small"><ion-icon name="eye-outline"></ion-icon></ion-button>
+  </div>
+
+  <ion-card *ngIf="view=='table'" color="secondary">
+    <ion-card-content>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users | async">
+              <td class="col">{{ user.userName }}</td>
+              <td class="col">{{ user.userEmail }}</td>
+              <td class="col">{{ user.userPhone }}</td>
+              
+              <td class="col">
+                <ion-button size="small" color="danger" (click)="deleteUser(user.id)">
+                  <ion-icon name="trash-outline" ></ion-icon> Delete
+                </ion-button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <span *ngIf="view=='card'">
+    <ion-card color="secondary"
+    *ngFor="let user of users | async" 
+    class="users-card">
+    
+      <ion-card-content>
+        {{ user.userName }} <br>
+        {{ user.userEmail }} <br>
+        {{ user.userPhone }} <br>
+
+        <ion-footer class="card-footer text-right">
+          <ion-button size="small" color="danger" (click)="deleteUser(user.id)">
+            <ion-icon name="trash-outline" ></ion-icon> Delete
+          </ion-button>
+
+        </ion-footer>
+      </ion-card-content>
+    </ion-card>
+  </span>
+</ion-content>
